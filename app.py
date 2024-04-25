@@ -6,7 +6,6 @@ from flask_limiter.util import get_remote_address
 
 db = Database("./database")
 app = Flask(__name__)
-app.template_folder = "/templates"
 limiter = Limiter(get_remote_address, app=app)
 
 
