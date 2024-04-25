@@ -10,6 +10,8 @@ If you want to run the service under the tor proxy you have to change a few sett
 
 You have to uncomment these two lines HiddenServicePort and HiddenServiceDir.
 
+To see the url that tor provides you have to see the file: hostname in /var/lib/tor/hidden_service/
+
 
 
 
