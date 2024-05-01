@@ -2,7 +2,6 @@ import os
 import json
 import secrets
 
-# from Crypto.Cipher import AES
 from cryptography.fernet import Fernet
 
 
