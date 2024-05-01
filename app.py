@@ -9,8 +9,9 @@ app = Flask(__name__)
 limiter = Limiter(get_remote_address, app=app)
 
 
-@limiter.limit("10/m")
+
 @app.route("/add-url", methods=["POST"])
+@limiter.limit("10/m")
 def add_url():
     url = request.get_json()["url"]
 
@@ -19,8 +20,9 @@ def add_url():
     return {"url": f"/{data}"}
 
 
-@limiter.limit("30/m")
+
 @app.route("/<path>", methods=["GET"])
+@limiter.limit("30/m")
 def get_url(path):
     try:
         url = db.get_url(path)
@@ -29,7 +31,6 @@ def get_url(path):
     except:
         return {"url": "invalid data"}, 400
 
-# to add the crypto using AES
 if __name__ == "__main__":
     HOST = "127.0.0.1"
     PORT = 8080
